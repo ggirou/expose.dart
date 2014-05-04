@@ -145,16 +145,16 @@
     <!-- http://www.polymer-project.org/articles/styling-elements.html -->
     <div>
       <div class="slides">
-        <template repeat="{{section in sections | enumerate}}">
-          <div class="{{ {'past': section.index < hIndex, 'present': section.index == hIndex, 'future': section.index > hIndex} }}">
-            <content select="section:nth-child({{ section.index }})"></content>
-          </div>
+        <template repeat="{{slide in slides | enumerate}}">
+          <template if="slide.value.vCount == 0">
+            <div class="{{ {'past': slide.index < hIndex, 'present': slide.index == hIndex, 'future': slide.index > hIndex} }}">
+              <content select="section:nth-child({{ slide.index + 1 }})"></content>
+            </div>
+          </template>
+          <template if="slide.value.vCount > 0">
+            <content select="section:nth-child({{ slide.index + 1 }})"></content>
+          </template>
         </template>
-        <!-- <content select="section:nth-child(-n+{{ hIndex - 1 }})" class="past"></content>
-        <content select="section:nth-child({{ hIndex }})" class="present">
-          <i><content></content></i>
-        </content>
-        <content select="section:nth-child(n+{{ hIndex + 1 }})" class="future"></content> -->
       </div>
     </div>
   </template>
