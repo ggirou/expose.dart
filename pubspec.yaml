@@ -2,7 +2,7 @@ name: expose
 description: A two hour exercise, based on the Risk game, to learn Polymer.dart.
 dependencies:
   browser: any
-  polymer: '>=0.9.5 <0.10.0'
+  polymer: '>=0.12.0 <0.13.0'
 dev_dependencies:
   mock: any
   unittest: any

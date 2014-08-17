@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-
+<link rel="import" href="packages/polymer/polymer.html">
 <polymer-element name="x-expose">
   <template>
     <!--<link rel="stylesheet" href="css/expose.min.css">-->
@@ -146,12 +145,12 @@
     <div>
       <div class="slides">
         <template repeat="{{slide in slides | enumerate}}">
-          <template if="slide.value.vCount == 0">
+          <template if="{{slide.value.vCount == 0}}">
             <div class="{{ {'past': slide.index < hIndex, 'present': slide.index == hIndex, 'future': slide.index > hIndex} }}">
-              <content select="section:nth-child({{ slide.index + 1 }})"></content>
+              <content select="{{ slide.index | sectionNthChild }}"></content>
             </div>
           </template>
-          <template if="slide.value.vCount > 0">
+          <template if="{{slide.value.vCount > 0}}">
             <content select="section:nth-child({{ slide.index + 1 }})"></content>
           </template>
         </template>

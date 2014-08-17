@@ -74,6 +74,9 @@ class Expose extends PolymerElement {
   navigateRight() => hIndex = min(hIndex + 1, slides.length - 1);
   navigateUp() => print("navigateUp");
   navigateDown() => print("navigateDown");
+  
+  // BUG: https://github.com/Polymer/polymer/issues/470
+  sectionNthChild(int index) => 'section:nth-child(${index + 1})';
 }
 
 class Slide extends Object with Observable {
